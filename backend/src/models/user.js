@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const { ROLE } = require('../middleware/role')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -31,6 +32,16 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
+    role: {
+        type: String,
+        enum : [ROLE.EMPLOYEE,ROLE.MANAGER],
+        default: ROLE.EMPLOYEE
+    },
+    manager : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: isEmployee
+    },
     password: {
         type: String,
         required: true,
@@ -49,13 +60,13 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }],
-    avatar: {
-        type: Buffer
-    }
 }, {
     timestamps: true
 })
 
+function isEmployee() {
+    return this.role === ROLE.EMPLOYEE
+}
 
 userSchema.methods.toJSON = function() {
     const user = this
@@ -96,11 +107,6 @@ userSchema.pre('save', async function(next) {
     next()
 })
 
-//Delete user tasks after user is deleted
-// userSchema.pre('remove', async function(next) {
-//     const user = this
-//     await Task.deleteMany({owner: user._id})
-// })
 const User = mongoose.model("User", userSchema)
 
 module.exports = User
