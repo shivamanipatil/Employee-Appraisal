@@ -1,0 +1,41 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <div fxFlex="25" fxFlex.md="50" fxFlex.sm="75" fxFlex.xs="90">
+    <mat-tab-group mat-align-tabs="center" class="mat-elevation-z4">
+        <mat-tab label="Login" >
+            <form 
+                fxLayoutAlign="stretch" 
+                fxLayout="column" 
+                class="login-form"
+                (submit)="loginUser($event)"
+            >
+                <mat-form-field>
+                    <input matInput placeholder="emial">
+                </mat-form-field>          
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password">
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Login</button>   
+            </form>        
+        </mat-tab>
+        <mat-tab label="Register">
+            <form 
+                fxLayoutAlign="stretch" 
+                fxLayout="column" 
+                class="login-form"
+                (submit)="loginUser($event)"
+            >
+                <mat-form-field>
+                    <input matInput placeholder="Name">
+                </mat-form-field> 
+                <mat-form-field>
+                    <input matInput placeholder="email">
+                </mat-form-field>          
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password">
+                </mat-form-field>
+                <button mat-raised-button color="accent" type="submit">Register</button>   
+            </form>          
+        </mat-tab>
+    </mat-tab-group>
+</div>
+</div>
