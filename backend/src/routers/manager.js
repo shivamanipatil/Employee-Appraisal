@@ -49,4 +49,16 @@ router.get('/subordinates', auth, authRole(ROLE.MANAGER), async (req, res) => {
     }
 })
 
+//POST /api/add/subordinate
+router.get('/api/add/subordinate', auth, authRole(ROLE.MANAGER), async (req, res) => {
+    try {
+        const user = User.findById(req.body.employee)
+        user.manager = req.user._id
+        user.save()
+        res.send()
+    } catch (e){
+        res.status(400).send(e)
+    }
+})
+
 module.exports = router

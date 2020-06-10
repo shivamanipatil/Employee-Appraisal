@@ -8,7 +8,8 @@ router.get('/users/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
-router.post('/users', async (req, res) => {
+router.post('/api/register', async (req, res) => {
+    console.log(req.body)
     const user = new User(req.body)
     
     try {
@@ -20,7 +21,7 @@ router.post('/users', async (req, res) => {
     }
 })
 
-router.post('/users/login', async (req, res) => {
+router.post('/api/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()

@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
     manager : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: isEmployee
+        required: false
     },
     password: {
         type: String,
@@ -64,9 +64,6 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
-function isEmployee() {
-    return this.role === ROLE.EMPLOYEE
-}
 
 userSchema.methods.toJSON = function() {
     const user = this

@@ -1,1 +1,23 @@
-<p>sign-up works!</p>
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <div fxFlex="25" fxFlex.md="50" fxFlex.sm="75" fxFlex.xs="90">
+    <mat-card label="Register">
+        <mat-toolbar color="accent">Manager Registration</mat-toolbar>
+        <form 
+            fxLayoutAlign="stretch" 
+            fxLayout="column" 
+            class="login-form"
+        >
+            <mat-form-field>
+                <input [(ngModel)]="registerUserData.name" name="name" matInput placeholder="Name">
+            </mat-form-field> 
+            <mat-form-field>
+                <input [(ngModel)]="registerUserData.email" name="email" matInput placeholder="email">
+            </mat-form-field>          
+            <mat-form-field>
+                <input [(ngModel)]="registerUserData.password" name="password" matInput type="password" placeholder="Password">
+            </mat-form-field>
+            <button (click)="registerUser()" mat-raised-button color="accent" type="submit">Register</button>   
+        </form>          
+    </mat-card>
+    </div>
+</div>

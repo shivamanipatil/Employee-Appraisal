@@ -15,6 +15,12 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth.service';
+import { FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio'; 
+import { AuthGuard } from './auth.guard';
+import { ProfileComponent } from './user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     LoginComponent,
     HomeComponent,
     UserComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +42,12 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatInputModule,
     MatToolbarModule,
     MatAutocompleteModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule,
+    FormsModule,
+    MatRadioModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
