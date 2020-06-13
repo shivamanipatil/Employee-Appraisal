@@ -2,6 +2,11 @@ const mongoose = require('mongoose')
 const {ROLE} = require('../middleware/role')
 
 const reviewSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true  
+    },
     employee: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -20,12 +25,7 @@ const reviewSchema = new mongoose.Schema({
                 throw new Error("Rating lies between 0 and 5.")
             }
         }
-    }],
-    metrics: [{
-        type: mongoose.Types.ObjectId,
-        ref: "Metric",
-        required: true
-    }]          
+    }]      
 })
 
 const Review = mongoose.model("Review", reviewSchema)

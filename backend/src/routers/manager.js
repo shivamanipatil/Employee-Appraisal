@@ -19,18 +19,18 @@ router.post('/create/metric', auth, authRole(ROLE.MANAGER), async (req, res) => 
     }
 })
 
-//POST /reviews for a employee
-router.post('/reviews', auth, async (req, res) => {
+//POST /reviews for a employee by self or manager 
+router.post('/api/reviews', auth, async (req, res) => {
     try {
         const employee = await User.findById(req.body.employee)
         if(!req.user._id.equals(employee._id) && !req.user._id.equals(employee.manager._id)) {
             throw new Error("Not authorized")
         }
         const review = new Review({
+            name: req.body.name,
             employee: req.body.employee,
             designation: req.user.role,
             ratings: req.body.ratings,
-            metrics: req.body.metrics,
         })
         await review.save()
         res.status(201).send()
@@ -39,10 +39,10 @@ router.post('/reviews', auth, async (req, res) => {
     }
 })
 
-//GET /subordinates
-router.get('/subordinates', auth, authRole(ROLE.MANAGER), async (req, res) => {
+//GET /api/subordinates
+router.get('/api/subordinates', auth, authRole(ROLE.MANAGER), async (req, res) => {
     try {
-        const subordinates = await User.find({manager: req.user._id, role: ROLE.EMPLOYEE})
+        const subordinates = await User.find({manager: req.user._id, role: ROLE.EMPLOYEE}, "name email _id role")
         res.send(subordinates)
     } catch(e) {
         res.status(400).send(e)

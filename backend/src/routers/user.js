@@ -4,7 +4,14 @@ const User = require('../models/user')
 const auth = require('../middleware/auth')
 const {ROLE, authRole} = require('../middleware/role')
 
-router.get('/users/me', auth, async (req, res) => {
+router.get('/profile', auth, async (req, res) => {
+    console.log(req.user)
+    if(req.user.role == ROLE.EMPLOYEE && req.user.MANAGER !== null) {
+        let manager = await User.findById({_id: req.user.manager})
+        const user = req.user.toObject()
+        user.managerName = manager.name    
+        return res.send(user)
+    }
     res.send(req.user)
 })
 

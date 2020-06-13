@@ -1,1 +1,59 @@
-<p>profile works!</p>
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <div fxFlex="25" fxFlex.md="50" fxFlex.sm="75" fxFlex.xs="90" class="container">
+        <mat-card class="example-card">
+            <mat-card-header class="header">
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{ profile.name }}</mat-card-title>
+              <mat-card-subtitle>{{ profile.email }} </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content> 
+                <mat-chip-list aria-label="Fish selection" class="chip-list">
+                    <mat-chip color="accent" selected>{{ profile.role}}</mat-chip>
+                </mat-chip-list>  
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Info
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                  <p>Name : {{ profile.name }}</p>
+                  <p>Age : {{ profile.age }}</p>
+                  <p>Created : {{ profile.createdAt | date: 'shortDate'}}</p>
+                  <p>Updated : {{ profile.updatedAt | date: 'shortDate'}}</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Designation 
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-chip-list aria-label="Fish selection">
+                        <mat-chip color="accent" selected>{{ profile.role}}</mat-chip>
+                    </mat-chip-list>  
+                </mat-expansion-panel>
+                <mat-expansion-panel *ngIf="isEmployee()">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        Manager 
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>{{ profile.managerName }}</p>
+                </mat-expansion-panel>
+            </mat-accordion>                  
+            </mat-card-content>
+            <mat-card-actions>
+                <button *ngIf="isEmployee()" mat-raised-button color="accent" >Reviews</button>
+                <button *ngIf="isEmployee()" mat-raised-button color="accent" (click)="onSelect(profile._id, profile.name)">Write review</button>
+                <button *ngIf="isManager()" mat-raised-button color="accent" routerLink="/employees">View/review Subordinates</button>
+            </mat-card-actions>
+          </mat-card>
+          
+    </div>
+</div>

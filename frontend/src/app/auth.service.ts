@@ -20,4 +20,8 @@ export class AuthService {
     //returns true if token exists else false
     return !!localStorage.getItem('token')
   }
+  
+  getToken() {
+    return localStorage.getItem('token')
+  }
 }
