@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  
+  mobile: boolean = true
   profile = {
     name: '',
     age: 0,
@@ -23,6 +23,9 @@ export class ProfileComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    if (window.screen.width === 360) {
+      this.mobile = false;
+    }
     this._profileService.getProfile()
     .subscribe(
       res => { 

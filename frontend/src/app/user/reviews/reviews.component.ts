@@ -54,6 +54,6 @@ export class ReviewsComponent implements OnInit {
       },
       err => console.log(err)
     )
-      this._router.navigate(['/profile'])
+    this._router.navigate(['/profile'])
   } 
 }

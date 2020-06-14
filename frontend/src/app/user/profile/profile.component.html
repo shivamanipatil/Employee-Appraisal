@@ -4,7 +4,7 @@
             <mat-card-header class="header">
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title>{{ profile.name }}</mat-card-title>
-              <mat-card-subtitle>{{ profile.email }} </mat-card-subtitle>
+              <mat-card-subtitle *ngIf="mobile">{{ profile.email }} </mat-card-subtitle>
             </mat-card-header>
             <mat-card-content> 
                 <mat-chip-list aria-label="Fish selection" class="chip-list">
@@ -20,6 +20,7 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                   <p>Name : {{ profile.name }}</p>
+                  <p>Email : {{ profile.email }}</p>
                   <p>Age : {{ profile.age }}</p>
                   <p>Created : {{ profile.createdAt | date: 'shortDate'}}</p>
                   <p>Updated : {{ profile.updatedAt | date: 'shortDate'}}</p>
@@ -50,6 +51,7 @@
             </mat-card-content>
             <mat-card-actions>
                 <button *ngIf="isEmployee()" mat-raised-button color="accent" [routerLink]="['/reviewsList',profile._id]">Reviews</button>
+                <button *ngIf="isEmployee()" mat-raised-button color="accent" routerLink="/managers">Add Manager</button>
                 <button *ngIf="isEmployee()" mat-raised-button color="accent" (click)="onSelect(profile._id, profile.name)">Write review</button>
                 <button *ngIf="isManager()" mat-raised-button color="accent" routerLink="/employees">View/review Subordinates</button>
                 <button *ngIf="isManager()" mat-raised-button color="accent" [routerLink]="['/reviewsList',profile._id]">Reviews</button>

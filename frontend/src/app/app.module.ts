@@ -34,7 +34,8 @@ import { ReviewsComponent } from './user/reviews/reviews.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReviewListComponent } from './user/review-list/review-list.component'; 
 import { MatTableModule } from '@angular/material/table'; 
-import { MatSelectModule } from '@angular/material/select'; 
+import { MatSelectModule } from '@angular/material/select';
+import { ManagerListComponent } from './user/manager-list/manager-list.component'; 
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MatSelectModule } from '@angular/material/select';
     EmployeeListComponent,
     ReviewsComponent,
     ReviewListComponent,
+    ManagerListComponent,
   ],
   imports: [
     BrowserModule,

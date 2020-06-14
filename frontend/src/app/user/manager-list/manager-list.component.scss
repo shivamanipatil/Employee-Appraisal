@@ -7,14 +7,15 @@
         }
         .header {
             border-bottom: 1px solid rgb(200, 200, 200);
-            margin-bottom: 5px;
-            padding-bottom: 0px;
+            margin-bottom: 7px;
+            padding-bottom: 6px;
         }
-        .chip-list {
-            margin:2px;
-        }
-        button {
-            margin: 3px;
+        mat-card {
+            margin: 8px;
+            button {
+                float: right;
+                margin: auto;
+            }
         }
     }
 

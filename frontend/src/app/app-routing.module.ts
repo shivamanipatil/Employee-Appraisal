@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import { ReviewsComponent } from './user/reviews/reviews.component';
 import { ReviewListComponent } from './user/review-list/review-list.component';
+import { ManagerListComponent } from './user/manager-list/manager-list.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
     component:ReviewsComponent
   },
   {path: 'reviewsList/:id', component:ReviewListComponent},
+  {path: 'managers', component: ManagerListComponent}
 ];
 
 @NgModule({

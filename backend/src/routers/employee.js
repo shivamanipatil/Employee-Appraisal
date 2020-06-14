@@ -5,6 +5,16 @@ const auth = require('../middleware/auth')
 const {ROLE, authRole} = require('../middleware/role')
 const Review = require('../models/review')
 
+//get managers list
+router.get('/api/managers', auth, async(req, res) => {
+    try {
+        const manager = await User.find({role: ROLE.MANAGER})
+        res.send(manager)
+    } catch(e) {
+        
+    }
+})
+
 //Employee can add who is their manager
 router.post('/api/addManager', auth, authRole(ROLE.EMPLOYEE), async (req, res) => {
     try {
