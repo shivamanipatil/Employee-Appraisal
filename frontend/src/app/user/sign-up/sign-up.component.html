@@ -1,7 +1,7 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <div fxFlex="25" fxFlex.md="50" fxFlex.sm="75" fxFlex.xs="90">
     <mat-card label="Register">
-        <mat-toolbar color="accent">Manager Registration</mat-toolbar>
+        <mat-toolbar color="accent">Registration</mat-toolbar>
         <form 
             fxLayoutAlign="stretch" 
             fxLayout="column" 
@@ -9,7 +9,14 @@
         >
             <mat-form-field>
                 <input [(ngModel)]="registerUserData.name" name="name" matInput placeholder="Name">
-            </mat-form-field> 
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Select an designation</mat-label>
+                <mat-select [(value)]="registerUserData.role">
+                  <mat-option value="employee">employee</mat-option>
+                  <mat-option value="manager">manager</mat-option>
+                </mat-select>
+              </mat-form-field> 
             <mat-form-field>
                 <input [(ngModel)]="registerUserData.email" name="email" matInput placeholder="email">
             </mat-form-field>          

@@ -34,6 +34,7 @@ import { ReviewsComponent } from './user/reviews/reviews.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReviewListComponent } from './user/review-list/review-list.component'; 
 import { MatTableModule } from '@angular/material/table'; 
+import { MatSelectModule } from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MatTableModule } from '@angular/material/table';
     MatListModule,
     MatGridListModule,
     MatSliderModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [AuthService, AuthGuard, ProfileService,
   {

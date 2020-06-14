@@ -3,8 +3,18 @@ const router = new express.Router()
 const User = require('../models/user')
 const auth = require('../middleware/auth')
 const {ROLE, authRole} = require('../middleware/role')
-const Metric = require('../models/metric')
 const Review = require('../models/review')
+
+//Employee can add who is their manager
+router.post('/api/addManager', auth, authRole(ROLE.EMPLOYEE), async (req, res) => {
+    try {
+        req.user.manager = req.body.managerId
+        req.user.save()
+        res.send()
+    } catch (e) {
+        res.status(400).send()
+    }
+})
 
 //Both manager and empoyee can access 
 router.get('/api/reviews', auth, async (req, res) => {

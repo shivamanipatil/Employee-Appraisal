@@ -13,7 +13,7 @@ export class SignUpComponent implements OnInit {
     name: '',
     email: '',
     password: '',
-    role: "employee",
+    role: '',
     manager : "5edf64ba806a7b762e7dfdd0"
   }
   
