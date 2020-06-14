@@ -31,7 +31,9 @@ import {MatListModule} from '@angular/material/list';
 import { EmployeeListComponent } from './user/employee-list/employee-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReviewsComponent } from './user/reviews/reviews.component';
-import { MatSliderModule } from '@angular/material/slider'; 
+import { MatSliderModule } from '@angular/material/slider';
+import { ReviewListComponent } from './user/review-list/review-list.component'; 
+import { MatTableModule } from '@angular/material/table'; 
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { MatSliderModule } from '@angular/material/slider';
     ProfileComponent,
     EmployeeListComponent,
     ReviewsComponent,
+    ReviewListComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatChipsModule,
     MatListModule,
     MatGridListModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTableModule
   ],
   providers: [AuthService, AuthGuard, ProfileService,
   {

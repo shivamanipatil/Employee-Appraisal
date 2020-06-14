@@ -7,6 +7,7 @@ import { EmployeeListComponent } from './user/employee-list/employee-list.compon
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import { ReviewsComponent } from './user/reviews/reviews.component';
+import { ReviewListComponent } from './user/review-list/review-list.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -15,9 +16,10 @@ const routes: Routes = [
   {path: 'employees', component:EmployeeListComponent},
   {path:'profile', component:ProfileComponent, canActivate: [AuthGuard]},
   {               
-    path:'reviews/:id/:name', 
+    path:'reviews/:type/:id/:name', 
     component:ReviewsComponent
-  }
+  },
+  {path: 'reviewsList/:id', component:ReviewListComponent},
 ];
 
 @NgModule({

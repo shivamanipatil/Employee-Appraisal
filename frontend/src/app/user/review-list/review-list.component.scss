@@ -8,16 +8,19 @@
             font-size: 30px;
         }
         .example-header-image {
-            background-image: url('https://www.freeiconspng.com/uploads/person-outline-icon-png-person-outline-icon-png-person-17.png');
+            background-image: url('https://cdn.iconscout.com/icon/premium/png-512-thumb/google-forms-5-680508.png');
             background-size: cover;
         }
         .mat-card {
-            margin: 5px;
+            margin: 2px;
             .header {
-                // border-bottom: 1px solid rgb(200, 200, 200);
-                margin-bottom: 5px;
+                border-bottom: 1px solid rgb(200, 200, 200);
+                margin-bottom: 10px;
                 padding-bottom: 0px;
             }
+        }
+        .mat-accordion {
+            margin: 4px;
         }
 
     }

@@ -1,0 +1,36 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <div fxFlex="40" fxFlex.md="50" fxFlex.sm="75" fxFlex.xs="90" class="container">
+        <mat-toolbar class="heading" fxLayoutAlign="center center">Your Reviews</mat-toolbar>
+        <mat-card *ngFor="let review of reviews" class="example-card">
+            <mat-card-header class="header">
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{ review.name }}</mat-card-title>
+              <mat-card-subtitle>{{ review.employeeName }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content> 
+                <mat-chip-list aria-label="Fish selection" class="chip-list">
+                    <mat-chip color="accent" selected>Given by {{ review.designation }}</mat-chip>
+                </mat-chip-list>  
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                            Ratings given
+                            </mat-panel-title>
+                            <mat-panel-description>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                      
+                      <mat-chip-list *ngFor="let rating of review.ratings" aria-label="Fish selection" class="chip-list">
+                        <mat-chip color="accent" selected>{{rating}} out of 5</mat-chip>
+                    </mat-chip-list>  
+                    </mat-expansion-panel>  
+                    </mat-accordion>              
+            </mat-card-content>
+            <mat-card-actions fxLayoutAlign="center center">
+                <button  *ngIf="canEdit(review.givenBy)" mat-raised-button color="accent" (click)="updateReview(review._id, review.employeeName)">Update review</button>
+                <button  *ngIf="canEdit(review.givenBy)" mat-raised-button color="accent" (click)="deleteReview(review._id)">Delete review</button>
+            </mat-card-actions>
+          </mat-card>           
+    </div>
+</div>

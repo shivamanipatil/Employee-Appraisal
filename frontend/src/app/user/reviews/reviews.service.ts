@@ -12,4 +12,8 @@ export class ReviewsService {
   postReview(review) {
     return this.http.post<any>(this._reviewUrl, review)
   }
+  updateReview(review, id) {
+    console.log(id)
+    return this.http.patch<any>(this._reviewUrl + '/' + id, review)
+  }
 }

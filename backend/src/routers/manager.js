@@ -19,25 +19,6 @@ router.post('/create/metric', auth, authRole(ROLE.MANAGER), async (req, res) => 
     }
 })
 
-//POST /reviews for a employee by self or manager 
-router.post('/api/reviews', auth, async (req, res) => {
-    try {
-        const employee = await User.findById(req.body.employee)
-        if(!req.user._id.equals(employee._id) && !req.user._id.equals(employee.manager._id)) {
-            throw new Error("Not authorized")
-        }
-        const review = new Review({
-            name: req.body.name,
-            employee: req.body.employee,
-            designation: req.user.role,
-            ratings: req.body.ratings,
-        })
-        await review.save()
-        res.status(201).send()
-    } catch(e) {
-        res.status(401).send(e) 
-    }
-})
 
 //GET /api/subordinates
 router.get('/api/subordinates', auth, authRole(ROLE.MANAGER), async (req, res) => {

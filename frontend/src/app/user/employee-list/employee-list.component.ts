@@ -31,7 +31,7 @@ export class EmployeeListComponent implements OnInit {
   }
   
   onSelect(id: string, name: string): void {
-    this.router.navigate(['/reviews', id, name]);
+    this.router.navigate(['/reviews/create',id, name]);
   }
 
 }

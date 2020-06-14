@@ -12,6 +12,15 @@ const reviewSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    employeeName: {
+        type: String,
+        required: true,
+    },
+    givenBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     designation: {
         type: String,
         enum : [ROLE.EMPLOYEE,ROLE.MANAGER],
