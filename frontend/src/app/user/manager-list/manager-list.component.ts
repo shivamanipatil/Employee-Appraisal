@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerListService } from './manager-list.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-list',
@@ -12,7 +13,8 @@ export class ManagerListComponent implements OnInit {
     name: '',
     _id: ''
   }]
-  constructor(private _managerService: ManagerListService) { }
+  constructor(private _managerService: ManagerListService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this._managerService.getMangers()
@@ -35,6 +37,7 @@ export class ManagerListComponent implements OnInit {
       },
       err => console.log(err)
     )
+    this._router.navigate(['/profile'])
   }
 
 }

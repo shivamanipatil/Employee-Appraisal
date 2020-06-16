@@ -3,22 +3,7 @@ const router = new express.Router()
 const User = require('../models/user')
 const auth = require('../middleware/auth')
 const {ROLE, authRole} = require('../middleware/role')
-const Metric = require('../models/metric')
 const Review = require('../models/review')
-
-//POST /create/metric
-router.post('/create/metric', auth, authRole(ROLE.MANAGER), async (req, res) => {
-    try {
-        const metric = new Metric({
-            ...req.body,
-        })
-        await metric.save()
-        res.status(201).send()
-    } catch(e) {
-        res.status(400).send(e) 
-    }
-})
-
 
 //GET /api/subordinates
 router.get('/api/subordinates', auth, authRole(ROLE.MANAGER), async (req, res) => {
