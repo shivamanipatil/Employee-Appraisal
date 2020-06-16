@@ -1,7 +1,8 @@
 .main-div {
-    height: 100%;
     background-color: rgb(153, 0, 255);
+    min-height: 100%;
     .container {
+        margin-top: 13px;
         .mat-toolbar {
             border-radius: 6px;
             font-weight: 300;

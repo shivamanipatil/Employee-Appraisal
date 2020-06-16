@@ -13,7 +13,7 @@ import { ManagerListComponent } from './user/manager-list/manager-list.component
 const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'register', component:SignUpComponent},
-  {path: '', component:HomeComponent},
+  {path: '', redirectTo: 'profile', pathMatch: 'full'},
   {path: 'employees', component:EmployeeListComponent},
   {path:'profile', component:ProfileComponent, canActivate: [AuthGuard]},
   {               

@@ -38,7 +38,10 @@ export class ReviewsComponent implements OnInit {
       res => {
         console.log(res)
       },
-      err => console.log(err)
+      err => {
+        window.alert("Name is required.");
+        console.log(err);
+      }
     )
       this._router.navigate(['/profile'])
   }
@@ -52,7 +55,10 @@ export class ReviewsComponent implements OnInit {
       res => {
         console.log(res)
       },
-      err => console.log(err)
+      err => {
+        window.alert("Name is required.");
+        console.log(err);
+      }
     )
     this._router.navigate(['/profile'])
   } 

@@ -1,7 +1,7 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <div fxFlex="25" fxFlex.md="50" fxFlex.sm="75" fxFlex.xs="90">
         <mat-card label="Login" >
-            <mat-toolbar color="primary">Review for {{empName}}</mat-toolbar>
+            <mat-toolbar color="accent">Review for {{empName}}</mat-toolbar>
             <form 
                 fxLayoutAlign="stretch" 
                 fxLayout="column" 
@@ -30,9 +30,9 @@
                     <mat-label>Eval criteria/question number 5</mat-label>
                     <input  [(ngModel)]="ratings[4]" name="r5" matInput type="number" min="0" step="1"  max="5" placeholder="0">              
                 </mat-form-field>          
-                <button *ngIf="newReview; else updateButton" (click)="postReview()" mat-raised-button color="primary" type="submit">Submit</button>   
+                <button *ngIf="newReview; else updateButton" (click)="postReview()" mat-raised-button color="accent" type="submit">Submit</button>   
                 <ng-template #updateButton>
-                    <button (click)="updateReview()" mat-raised-button color="primary" type="submit">Update</button>   
+                    <button (click)="updateReview()" mat-raised-button color="accent" type="submit">Update</button>   
                 </ng-template>
             </form>        
         </mat-card>

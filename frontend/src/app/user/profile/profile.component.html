@@ -9,6 +9,7 @@
             <mat-card-content> 
                 <mat-chip-list aria-label="Fish selection" class="chip-list">
                     <mat-chip color="accent" selected>{{ profile.role}}</mat-chip>
+                    <mat-chip color="accent" selected (click)="logOut()">Log out</mat-chip>
                 </mat-chip-list>  
             <mat-accordion>
                 <mat-expansion-panel>

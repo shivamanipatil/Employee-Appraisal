@@ -1,15 +1,22 @@
 .main-div  {
+    background-color: rgb(153, 0, 255);
     border: 2px solid #808080;
     mat-tab {
         padding: 0px;
-        margin: 5px;
+        margin: 3px;
         
     }
     .login-form {
         padding: 20px;
+        padding-bottom: 0px;
         
     }
     .test {
         border: 3px solid black;
+    }
+    .registerText {
+        margin: 5px;
+        font-size: 15px;
+        color: rgb(170, 107, 118)
     }
 }

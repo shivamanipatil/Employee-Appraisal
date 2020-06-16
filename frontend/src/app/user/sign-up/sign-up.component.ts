@@ -30,7 +30,10 @@ export class SignUpComponent implements OnInit {
         localStorage.setItem('token', res.token)
         this._router.navigate(['/'])
       },
-      err => console.log(err)
+      err => {
+        window.alert("Use valid email address, name and password of min-length 7");
+        console.log(err);
+      }
     )
   }
 }

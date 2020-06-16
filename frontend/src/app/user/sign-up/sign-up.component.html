@@ -11,7 +11,7 @@
                 <input [(ngModel)]="registerUserData.name" name="name" matInput placeholder="Name">
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Select an designation</mat-label>
+                <mat-label>Designation</mat-label>
                 <mat-select [(value)]="registerUserData.role">
                   <mat-option value="employee">employee</mat-option>
                   <mat-option value="manager">manager</mat-option>
@@ -24,6 +24,7 @@
                 <input [(ngModel)]="registerUserData.password" name="password" matInput type="password" placeholder="Password">
             </mat-form-field>
             <button (click)="registerUser()" mat-raised-button color="accent" type="submit">Register</button>   
+            <button mat-button color="accent" routerLink="/login">Login ?</button>
         </form>          
     </mat-card>
     </div>

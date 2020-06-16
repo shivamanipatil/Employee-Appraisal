@@ -46,7 +46,10 @@ export class ProfileComponent implements OnInit {
   }
   
   onSelect(id: string, name: string): void {
-    this.router.navigate(['/reviews', id, name]);
+    this.router.navigate(['/reviews/create/', id, name]);
   }
-
+  logOut() {
+    localStorage.removeItem('token')
+    this.router.navigate(['/login'])
+  }
 }
